@@ -1,0 +1,9 @@
+{
+    "hardReloadOnChange": true,
+    "template": "node",
+    "container": { "port": 8787, "startScript": "npm run dev", "node": "16" },
+
+    "port": 8787,
+    "startScript": "dev",
+    "node": "16"
+}
