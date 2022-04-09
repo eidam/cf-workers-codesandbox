@@ -3,12 +3,30 @@
   "version": "0.0.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.4.0",
+    "@types/jest": "^27.4.1",
+    "esbuild": "^0.14.34",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^27.5.1",
     "typescript": "^4.6.3",
     "wrangler": "0.0.25"
   },
   "private": true,
   "scripts": {
     "start": "wrangler dev --local",
-    "publish": "wrangler publish"
+    "publish": "wrangler publish",
+    "test": "npx jest --forceExit"
+  },
+  "jest": {
+    "restoreMocks": true,
+    "testTimeout": 30000,
+    "testRegex": ".*.(test|spec)\\.[jt]sx?$",
+    "transform": {
+      "^.+\\.c?(t|j)sx?$": [
+        "esbuild-jest",
+        {
+          "sourcemap": true
+        }
+      ]
+    }
   }
 }
